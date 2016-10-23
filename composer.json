@@ -1,0 +1,14 @@
+{
+    "name": "paska27/toolbox",
+    "description": "Php tool box",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Sergey Poskachey",
+            "email": "seregynp@gmail.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^5.6"
+    }
+}
