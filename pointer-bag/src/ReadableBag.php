@@ -1,31 +1,27 @@
 <?php
-namespace Paska\PointerBag;
+namespace Paska\Toolbox\PointerBag;
 
 /**
  * Class ReadableBag
  *
  * Handy bag for storing configuration multidimensional array values.
- *
  * Only for reading.
- *
- * Access for values is done by 'chain-keys'.
+ * Access for values is done by 'chained-keys'.
  * get() method must be called at the end, otherwise ReadableBag object will be returned.
  *
  * Examples:
  *  <code>
  *      // get scalar value
  *      $config = new ReadableBag(array('find' => array('me' => 'hey!')));
- *      $value = $config->find->me; // returns 'hey!'
+ *      $value = $config->find->me->get(); // returns 'hey!'
  *
  *      // get array
  *      // use get() method to get current pointer's value
- *      $value = $config->find->get(); // returns array('me' => 'hey!')
+ *      $value = $config->find; // returns array('me' => 'hey!')
  *  </code>
- *
- * @package Oxynade\Library\PointerBag
  */
-class ReadableBag implements \IteratorAggregate {
-
+class ReadableBag implements \IteratorAggregate
+{
 	/**
 	 * Initial data.
 	 *

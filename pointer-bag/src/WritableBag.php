@@ -1,11 +1,10 @@
 <?php
-namespace Zicket\Library\PointerBag;
+namespace Paska\Toolbox\PointerBag;
 
 /**
  * Class WritableBag
  *
  * Handy bag for storing configuration arrays.
- *
  * Values can be overwritten.
  *
  * Example:
@@ -20,8 +19,6 @@ namespace Zicket\Library\PointerBag;
  *  // new values can be set as well
  *  $config->her->set('Jessica');
  * </code>
- *
- * @package Oxynade\Library\PointerBag
  */
 class WritableBag extends ReadableBag {
 	/**
