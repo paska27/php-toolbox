@@ -1,0 +1,10 @@
+<phpunit bootstrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="misc">
+            <directory>misc/test</directory>
+        </testsuite>
+        <testsuite name="pointer-bag">
+            <directory>pointer-bag/test</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
