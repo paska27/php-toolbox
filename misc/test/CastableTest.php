@@ -5,6 +5,9 @@ use Paska\Toolbox\Castable;
 class TestClass
 {}
 
+class TestClass2
+{}
+
 class CastableTest extends PHPUnit_Framework_TestCase
 {
     public function testToString()
@@ -32,5 +35,35 @@ class CastableTest extends PHPUnit_Framework_TestCase
         $this->assertNotEquals(false, Castable::toString($false));
         $this->assertEquals('true', (string) new Castable($true));
         $this->assertNotEquals(true, Castable::toString($true));
+    }
+
+    function testToMap() {
+        $collection = array_fill(0, 5, new TestClass());
+        $this->assertArrayHasKey('testclasss', Castable::toMap($collection));
+
+        $mixedMap = array(
+            0 => new TestClass(),
+            'stdClass' => new \stdClass(),
+            1 => new TestClass2()
+        );
+        $map = Castable::toMap($mixedMap);
+
+        $this->assertCount(3, $map);
+        $this->assertArrayHasKey('testclass', $map);
+        $this->assertArrayHasKey('stdClass', $map);
+        $this->assertArrayHasKey('testclass2', $map);
+        $this->assertFalse(Castable::isMap($mixedMap));
+        $this->assertTrue(Castable::isMap($map));
+    }
+
+    function testToList() {
+        $list = array('one', 'two', 'three');
+        $this->assertNotEquals($list, Castable::toList($list, ','));
+        $this->assertEquals('one,two,three', Castable::toList($list, ','));
+        $this->assertEquals('one;two;three', Castable::toList($list, ';'));
+        $this->assertEquals('"one", "two", "three"', Castable::toList($list, ', ', '"'));
+        $this->assertEquals('<one>, <two>, <three>', Castable::toList($list, ', ', array('<', '>')));
+        $this->assertEquals('one, two, three', Castable::toCsv($list));
+        $this->assertEquals("'one', 'two', 'three'", Castable::toCsv($list, "'"));
     }
 }

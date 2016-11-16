@@ -80,7 +80,6 @@ class Castable {
 			&& $value[$next] == $first
 		) {
 			$map[$objKey($first) . 's'] = $value;
-
 			return $map;
 		}
 
