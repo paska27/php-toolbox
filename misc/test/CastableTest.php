@@ -1,6 +1,6 @@
 <?php
 
-use Paska\Toolbox\Castable;
+namespace Paska\Toolbox;
 
 class TestClass
 {}
@@ -8,7 +8,7 @@ class TestClass
 class TestClass2
 {}
 
-class CastableTest extends PHPUnit_Framework_TestCase
+class CastableTest extends \PHPUnit_Framework_TestCase
 {
     public function testToString()
     {
@@ -24,7 +24,7 @@ class CastableTest extends PHPUnit_Framework_TestCase
         $false = false;
         $true = true;
 
-        $this->assertEquals('Object(TestClass)', Castable::toString($obj));
+        $this->assertEquals('Object(Paska\Toolbox\TestClass)', Castable::toString($obj));
         $this->assertEquals('Array(0 => zero, one => one, 2 => 2, three => 3)', Castable::toString($arr));
         $this->assertNotEquals('Array(zero => zero, 1 => one, two => 2, 3 => three)', Castable::toString($arr));
         $this->assertNotEquals('Array(zero => zero, 1 => one, two => 2, 3 => three)', Castable::toString($arr));
