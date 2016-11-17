@@ -1,8 +1,8 @@
 <?php
 
-use Paska\Toolbox\PointerBag\WritableBag;
+namespace Paska\Toolbox\PointerBag;
 
-class WritableBagTest extends PHPUnit_Framework_TestCase
+class WritableBagTest extends \PHPUnit_Framework_TestCase
 {
     static private $fixture = [
         'find' => [

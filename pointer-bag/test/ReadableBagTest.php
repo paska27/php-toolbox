@@ -1,8 +1,7 @@
 <?php
+namespace Paska\Toolbox\PointerBag;
 
-use Paska\Toolbox\PointerBag\ReadableBag;
-
-class ReadableBagTest extends PHPUnit_Framework_TestCase
+class ReadableBagTest extends \PHPUnit_Framework_TestCase
 {
     static private $fixture = [
         'find' => [
